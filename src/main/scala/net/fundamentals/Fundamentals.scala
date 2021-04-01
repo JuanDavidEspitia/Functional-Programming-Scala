@@ -216,12 +216,22 @@ class Fundamentals
           "mediana" -> mediana(lista),
           "moda"    -> moda(lista)
         )
-
-
         mapa foreach ( x => println(x._1 + " -> " + x._2) )
+
 
       }
     }
+
+    /**
+     * Tuplas
+     *
+     * ¿Como agrupar distintos tipos de datos en uno?
+     * Una lista no funcionara como esperamos (perdemos el tipo de dato)
+     * Las tuplas son estructuras de datos flexibles y potentes
+     * para agrupar datos
+     *
+     *
+     */
 
 
 
