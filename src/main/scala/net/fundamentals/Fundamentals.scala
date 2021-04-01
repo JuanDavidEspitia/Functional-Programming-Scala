@@ -300,7 +300,25 @@ class Fundamentals
   // obj2 es la copia con una copia interna modificada.
   val obj2 = obj1.copy(a = obj1.a.copy(1))
 
-}
+  /**
+   * ¿Qué es Scala Case Class?
+   *
+   * Una clase de caso de Scala es como una clase normal,
+   * excepto que es buena para modelar datos inmutables.
+   * También es útil en la coincidencia de patrones,
+   * una clase de este tipo tiene un método apply ()
+   * predeterminado que maneja la construcción de objetos.
+   * Una clase de caso de Scala también tiene todos los valores,
+   * lo que significa que son inmutables.
+   */
+
+  /**
+   * Inicializacion del proyecto con uso de 3 ramas
+   *
+   * Caso de prueba
+   *
+   * 1. hacer merge de la rama feacture a la rama
+   */
 
 
 }
