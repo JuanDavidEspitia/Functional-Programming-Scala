@@ -318,6 +318,8 @@ class Fundamentals
    * Caso de prueba
    *
    * 1. hacer merge de la rama feacture a la rama
+   * 2. Caso de prueba 2 de git
+   * 3. Caso de prueba 3
    */
 
 
