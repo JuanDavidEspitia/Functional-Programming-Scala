@@ -312,5 +312,13 @@ class Fundamentals
    * lo que significa que son inmutables.
    */
 
+  /**
+   * Inicializacion del proyecto con uso de 3 ramas
+   *
+   * Caso de prueba
+   *
+   * 1. hacer merge de la rama feacture a la rama
+   */
+
 
 }
