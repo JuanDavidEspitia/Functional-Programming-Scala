@@ -433,13 +433,45 @@ class Fundamentals
   a.drop() // los valore restantes menos el primero
 
 
+  /*
+  Razonamiento inductivo
+  Esta es una manera de razonar donde el primer paso es encontrar lo que se conoce
+  como caso base, es decir, un hecho concreto que usaremos como inicio del proceso
+  que queremos modelar.
+
+  El siguiente paso es modelar la continuación del proceso (paso inductivo)
+  usando el caso base anterior. Lo que sucede entonces es que el resultado
+  de este proceso se convierte en el nuevo caso base. Esto puede repetirse
+  cuantas veces sea necesario ya que conceptualmente puede ser infinito,
+  aunque lo normal es hallar una condición que detiene el proceso de continuación
+  y entrega el resultado final.
+
+  Un ejemplo sencillo de una prueba por inducción matemática sería probar
+  la siguiente proposición: «Los números son infinitos».
+
+  El caso base sería el número más bajo, que es el 0 (cero).
+  La continuación se usa el caso base y se le suma el número 1.
+  La prueba es que, si para cualquier caso base puedo sumarle 1, entonces los números son infinitos.
+
+  El resultado de esta proposición es que es cierta, porque a nivel matemático
+  no hay nada que evite que pueda sumarle un 1 a cualquier otro número.
+  Por supuesto esto no es cierto en informática, donde estamos limitados
+  por el espacio de memoria, esto nos pone un límite donde ya no es posible
+  sumar más cuando hay un número muy grande.
 
 
 
 
 
 
-  
+   */
+
+
+
+
+
+
+
 
 
 
