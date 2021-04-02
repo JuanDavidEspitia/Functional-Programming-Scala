@@ -391,5 +391,20 @@ class Fundamentals
 
   println(factorial(4))
 
+  /**
+   * Agrgaciones:
+   *
+   * Acomuladores
+   * Cuando trabajamos con Listas en lenguajes funcionales hay casos en los que
+   * necesitamos hacer acomuladores de datos para entregar el resultado final
+   *
+   *
+   * FoldLeft & FoldRight
+   *
+   */
+
+  val resultado = (1 to 3).foldLeft(1L)((r,n)=> r*n) // Generamos una lista
+
+  println(resultado)
 
 }
