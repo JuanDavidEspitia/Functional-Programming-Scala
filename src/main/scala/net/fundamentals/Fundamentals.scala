@@ -407,4 +407,40 @@ class Fundamentals
 
   println(resultado)
 
+
+  /*
+  Funcion Total:
+
+  Es una funcion que puede dar respuesta a todos los elementos de su dominio.
+  Es decir que sin importar la entrada, la funcion sera capaz de responder apropiadamente
+
+  Funcion Parcial:
+
+  Una funcion que puede dar respuesta a solo algunos elementos de su dominio y a otros no
+  Hay que tener cuidado con funciones que no estan bien definidas o que son inseguras
+  de usar por no ser totales
+  - .get()
+  - .head()
+  - .tail()
+  - .last()
+
+   */
+
+  val a = List(1,2,3,4,5)
+  a.head() // Retorna el primer valor de la lista
+  a.tail() // retorna el resto de valores sin el primer elemento
+  a.take() //Toma el primer elemento de la lista
+  a.drop() // los valore restantes menos el primero
+
+
+
+
+
+
+
+
+  
+
+
+
 }
