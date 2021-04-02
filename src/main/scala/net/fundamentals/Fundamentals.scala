@@ -545,6 +545,48 @@ class Fundamentals
   ejemplo.g(3,f)
 
 
+  /**
+   * Tipos de datos Algebraicos
+   *
+   * Tipos polinomicos:
+   * Cualquier tipo de dato, puede categorizarse en uno de dos tipos:
+   * - Tipo Suma
+   * - Tipo Product
+   *
+   * - Tipo Suma:
+   *    + Boolean
+   *    + Error
+   *    + etc
+   *
+   * - Tipo Producto:
+   *    + String
+   *    + Geometry
+   *    + Persona
+   *    + etc
+   *
+   *
+   *
+   *
+   */
+
+
+  sealed trait Persona
+
+  case class Estudiante(nombre:String) extends Persona
+
+  case class Profesor(nombre:String, profesion:String) extends Persona
+
+  val me:Persona = Profesor("Daniel","Desarrollador")
+
+  me
+
+  val res = me match{
+    case Profesor(nombre,profesion)=> s"$nombre, es $profesion"
+    case Estudiante(nombre)=> s"$nombre es estudiante"
+  }
+
+  println(res)
+
 
 
 }
