@@ -512,6 +512,37 @@ class Fundamentals
   object ejemplo extends ejemplo
 
 
+  /**
+   * Tipos Genericos
+   *
+   * Que son?
+   * Un tipo generico se comporta como un comodin. Nos permite
+   * Tener certeza sobre un tipo sin saber cual es aun.
+   *
+   * Especifico vs Generico:
+   *
+   * En lenguajes sin fuertes fundamentos de programacion generica. como Go.
+   * se usa un estilo donde hay que ser especificos con los tipos
+   *
+   * Lenguajes como Scala se da una flexibilidad mayor, con todo lo bueno y malo
+   * que se trae.
+   *
+   * Los tipos genericos son especializados al momento de compilar.
+   * Es decir que si una combinacion no tiene sentido, el programa no compilara
+   *
+   *
+   *
+   */
+
+  def f[A](x:A):String=s"$x" // una funcion generica que devolvera un string --> [A] es un generico
+  f(23)   // El compilador deduce el tipo de dato
+  f(true)
+
+  trait ejemplo[A,B]{  def g(x:A,f:A=>B):B=f(x)} // trait que define una funcion generica de un valor y una segunda funcion tambien generica
+
+  object ejemplo extends ejemplo[Int,String] // un trait require ser extendido
+
+  ejemplo.g(3,f)
 
 
 
