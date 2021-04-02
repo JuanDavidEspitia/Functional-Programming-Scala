@@ -459,16 +459,34 @@ class Fundamentals
   por el espacio de memoria, esto nos pone un límite donde ya no es posible
   sumar más cuando hay un número muy grande.
 
-
-
-
-
-
    */
 
 
+  /**
+   * Razonamiento con Tipo
+   *
+   * Tipado vs Dinamicos
+   *
+   * Los tipos de datos son muy importantes al momento de crear sistemas que escalen
+   *
+   * Los tipos mantienen la consistencia de un sistema y se vuelven una manera de probarlo
+   * Scala es tipado
+   *
+   * Sistema de Tipós:
+   * Los tipos son una parte critica para hacer abastracciones. Se vuelven una manera de documentar
+   * las posibilidades que tenemos
+   * Scala a diferencia de Java, tiene un sistema de tipos mucho mas potente y flexible
+   *
+   *
+   */
 
+    type PersonaId = Int // tipo alias
 
+    case class Persona(id: PersonaId, nombre:String)
+
+    type Estudiante = Persona // Definimos un estudiante de tipo persona
+
+    new Estudiante(1, "Daniel")
 
 
 
