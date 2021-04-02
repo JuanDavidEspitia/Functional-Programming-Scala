@@ -323,4 +323,26 @@ class Fundamentals
    */
 
 
+  /**
+   * Pattern Machine
+   *
+   *
+   *
+   *
+   */
+
+  case class Person(nombre: String, edad: Int)
+  val p1 = Person("maria",15)
+
+  val p2 = Person("maria",28)
+
+  val p3 = Person("diana",25)
+
+  def h(x: Person) = x match {
+    case x if x.nombre == "maria" && x.edad >= 18 => "Puedes entrar a la disco Maria"
+    case x if x.nombre == "maria" && x.edad < 18 => "Lo siento, no puedes entrar a la disco Maria"
+    case _ => "Solo Marias"
+  }
+
+
 }
