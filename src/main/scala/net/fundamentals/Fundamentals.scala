@@ -488,6 +488,29 @@ class Fundamentals
 
     new Estudiante(1, "Daniel")
 
+  /**
+   * Traits:
+   *
+   * Existe un concepto en lenguajes de programación que se conoce como Mixin.
+   * Un mixin es algo que contiene funcionalidades que luego pueden ser juntadas en una sola entidad.
+   *
+   * Los Traits son la manera de aplicar este concepto en Scala.
+   * Dentro de un Trait podremos colocar cualquier implementación de funciones y/o valores
+   * (o hablando en términos de programación orientada a objetos, métodos y/o atributos),
+   * esta implementación puede ser mezclada en un solo objeto también
+   * (lo que se suele llamar como herencia múltiple en programación orientada a objetos).
+   *
+   */
+
+  // Definición de un trait
+  trait ejemplo {
+    val valor = 5
+    def funcion(x: Int) = x * x
+  }
+
+  // Para instanciarse debe usarse un objeto
+  object ejemplo extends ejemplo
+
 
 
 
