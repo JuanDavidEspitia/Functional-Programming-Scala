@@ -345,4 +345,51 @@ class Fundamentals
   }
 
 
+  /**
+   * Tail Recursion
+   *
+   * Recursion:
+   * Una manera de abordar los prblemas donde la funcion se llama a si misma
+   * Es la manera clasica de programar en lenguajes funcionales
+   *
+   * Tail recursion:
+   * Es una pequeña mpdificacion sobre un algoritmo recursivo con el obejtivo de optimizar su ejecucion
+   * Lo que busca es no llenar el Stack
+   * con llamadas, sino realizar la operacion que queremos
+   * y pasar su acomulacion al siguiente paso
+   *
+   */
+
+  // Ejemplo de Factorial
+
+  def factorial(n: Long): Long  =
+    if (n == 0){
+      print("Termino")
+      1
+    }else {
+      println(s"Esta calculando ${n}")
+      n * factorial(n-1)
+    }
+
+
+  println(factorial(4))
+
+  /**
+   * Ejemplo de Tail recursion
+   */
+
+  // 3! = 1*2*3
+
+  def factorial(n: Long, resultado:Long = 1L): Long  =
+    if (n == 0){
+      print("Termino")
+      resultado
+    }else {
+      println(s"Esta calculando ${n}, resultado ${resultado}")
+      factorial(n-1, n * resultado)
+    }
+
+  println(factorial(4))
+
+
 }
