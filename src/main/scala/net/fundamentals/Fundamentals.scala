@@ -323,4 +323,270 @@ class Fundamentals
    */
 
 
+  /**
+   * Pattern Machine
+   *
+   *
+   *
+   *
+   */
+
+  case class Person(nombre: String, edad: Int)
+  val p1 = Person("maria",15)
+
+  val p2 = Person("maria",28)
+
+  val p3 = Person("diana",25)
+
+  def h(x: Person) = x match {
+    case x if x.nombre == "maria" && x.edad >= 18 => "Puedes entrar a la disco Maria"
+    case x if x.nombre == "maria" && x.edad < 18 => "Lo siento, no puedes entrar a la disco Maria"
+    case _ => "Solo Marias"
+  }
+
+
+  /**
+   * Tail Recursion
+   *
+   * Recursion:
+   * Una manera de abordar los prblemas donde la funcion se llama a si misma
+   * Es la manera clasica de programar en lenguajes funcionales
+   *
+   * Tail recursion:
+   * Es una pequeña mpdificacion sobre un algoritmo recursivo con el obejtivo de optimizar su ejecucion
+   * Lo que busca es no llenar el Stack
+   * con llamadas, sino realizar la operacion que queremos
+   * y pasar su acomulacion al siguiente paso
+   *
+   */
+
+  // Ejemplo de Factorial
+
+  def factorial(n: Long): Long  =
+    if (n == 0){
+      print("Termino")
+      1
+    }else {
+      println(s"Esta calculando ${n}")
+      n * factorial(n-1)
+    }
+
+
+  println(factorial(4))
+
+  /**
+   * Ejemplo de Tail recursion
+   */
+
+  // 3! = 1*2*3
+
+  def factorial(n: Long, resultado:Long = 1L): Long  =
+    if (n == 0){
+      print("Termino")
+      resultado
+    }else {
+      println(s"Esta calculando ${n}, resultado ${resultado}")
+      factorial(n-1, n * resultado)
+    }
+
+  println(factorial(4))
+
+  /**
+   * Agrgaciones:
+   *
+   * Acomuladores
+   * Cuando trabajamos con Listas en lenguajes funcionales hay casos en los que
+   * necesitamos hacer acomuladores de datos para entregar el resultado final
+   *
+   *
+   * FoldLeft & FoldRight
+   *
+   */
+
+  val resultado = (1 to 3).foldLeft(1L)((r,n)=> r*n) // Generamos una lista
+
+  println(resultado)
+
+
+  /*
+  Funcion Total:
+
+  Es una funcion que puede dar respuesta a todos los elementos de su dominio.
+  Es decir que sin importar la entrada, la funcion sera capaz de responder apropiadamente
+
+  Funcion Parcial:
+
+  Una funcion que puede dar respuesta a solo algunos elementos de su dominio y a otros no
+  Hay que tener cuidado con funciones que no estan bien definidas o que son inseguras
+  de usar por no ser totales
+  - .get()
+  - .head()
+  - .tail()
+  - .last()
+
+   */
+
+  val a = List(1,2,3,4,5)
+  a.head() // Retorna el primer valor de la lista
+  a.tail() // retorna el resto de valores sin el primer elemento
+  a.take() //Toma el primer elemento de la lista
+  a.drop() // los valore restantes menos el primero
+
+
+  /*
+  Razonamiento inductivo
+  Esta es una manera de razonar donde el primer paso es encontrar lo que se conoce
+  como caso base, es decir, un hecho concreto que usaremos como inicio del proceso
+  que queremos modelar.
+
+  El siguiente paso es modelar la continuación del proceso (paso inductivo)
+  usando el caso base anterior. Lo que sucede entonces es que el resultado
+  de este proceso se convierte en el nuevo caso base. Esto puede repetirse
+  cuantas veces sea necesario ya que conceptualmente puede ser infinito,
+  aunque lo normal es hallar una condición que detiene el proceso de continuación
+  y entrega el resultado final.
+
+  Un ejemplo sencillo de una prueba por inducción matemática sería probar
+  la siguiente proposición: «Los números son infinitos».
+
+  El caso base sería el número más bajo, que es el 0 (cero).
+  La continuación se usa el caso base y se le suma el número 1.
+  La prueba es que, si para cualquier caso base puedo sumarle 1, entonces los números son infinitos.
+
+  El resultado de esta proposición es que es cierta, porque a nivel matemático
+  no hay nada que evite que pueda sumarle un 1 a cualquier otro número.
+  Por supuesto esto no es cierto en informática, donde estamos limitados
+  por el espacio de memoria, esto nos pone un límite donde ya no es posible
+  sumar más cuando hay un número muy grande.
+
+   */
+
+
+  /**
+   * Razonamiento con Tipo
+   *
+   * Tipado vs Dinamicos
+   *
+   * Los tipos de datos son muy importantes al momento de crear sistemas que escalen
+   *
+   * Los tipos mantienen la consistencia de un sistema y se vuelven una manera de probarlo
+   * Scala es tipado
+   *
+   * Sistema de Tipós:
+   * Los tipos son una parte critica para hacer abastracciones. Se vuelven una manera de documentar
+   * las posibilidades que tenemos
+   * Scala a diferencia de Java, tiene un sistema de tipos mucho mas potente y flexible
+   *
+   *
+   */
+
+    type PersonaId = Int // tipo alias
+
+    case class Persona(id: PersonaId, nombre:String)
+
+    type Estudiante = Persona // Definimos un estudiante de tipo persona
+
+    new Estudiante(1, "Daniel")
+
+  /**
+   * Traits:
+   *
+   * Existe un concepto en lenguajes de programación que se conoce como Mixin.
+   * Un mixin es algo que contiene funcionalidades que luego pueden ser juntadas en una sola entidad.
+   *
+   * Los Traits son la manera de aplicar este concepto en Scala.
+   * Dentro de un Trait podremos colocar cualquier implementación de funciones y/o valores
+   * (o hablando en términos de programación orientada a objetos, métodos y/o atributos),
+   * esta implementación puede ser mezclada en un solo objeto también
+   * (lo que se suele llamar como herencia múltiple en programación orientada a objetos).
+   *
+   */
+
+  // Definición de un trait
+  trait ejemplo {
+    val valor = 5
+    def funcion(x: Int) = x * x
+  }
+
+  // Para instanciarse debe usarse un objeto
+  object ejemplo extends ejemplo
+
+
+  /**
+   * Tipos Genericos
+   *
+   * Que son?
+   * Un tipo generico se comporta como un comodin. Nos permite
+   * Tener certeza sobre un tipo sin saber cual es aun.
+   *
+   * Especifico vs Generico:
+   *
+   * En lenguajes sin fuertes fundamentos de programacion generica. como Go.
+   * se usa un estilo donde hay que ser especificos con los tipos
+   *
+   * Lenguajes como Scala se da una flexibilidad mayor, con todo lo bueno y malo
+   * que se trae.
+   *
+   * Los tipos genericos son especializados al momento de compilar.
+   * Es decir que si una combinacion no tiene sentido, el programa no compilara
+   *
+   *
+   *
+   */
+
+  def f[A](x:A):String=s"$x" // una funcion generica que devolvera un string --> [A] es un generico
+  f(23)   // El compilador deduce el tipo de dato
+  f(true)
+
+  trait ejemplo[A,B]{  def g(x:A,f:A=>B):B=f(x)} // trait que define una funcion generica de un valor y una segunda funcion tambien generica
+
+  object ejemplo extends ejemplo[Int,String] // un trait require ser extendido
+
+  ejemplo.g(3,f)
+
+
+  /**
+   * Tipos de datos Algebraicos
+   *
+   * Tipos polinomicos:
+   * Cualquier tipo de dato, puede categorizarse en uno de dos tipos:
+   * - Tipo Suma
+   * - Tipo Product
+   *
+   * - Tipo Suma:
+   *    + Boolean
+   *    + Error
+   *    + etc
+   *
+   * - Tipo Producto:
+   *    + String
+   *    + Geometry
+   *    + Persona
+   *    + etc
+   *
+   *
+   *
+   *
+   */
+
+
+  sealed trait Persona
+
+  case class Estudiante(nombre:String) extends Persona
+
+  case class Profesor(nombre:String, profesion:String) extends Persona
+
+  val me:Persona = Profesor("Daniel","Desarrollador")
+
+  me
+
+  val res = me match{
+    case Profesor(nombre,profesion)=> s"$nombre, es $profesion"
+    case Estudiante(nombre)=> s"$nombre es estudiante"
+  }
+
+  println(res)
+
+
+
 }
